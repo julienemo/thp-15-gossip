@@ -26,11 +26,22 @@ class Gossip
   end
 
   def self.all
+    file = CSV.read("db/gossip.csv")
     gossips = []
-    CSV.foreach("db/gossip.csv") do |row|
-      gossips << "#{row[0]} says #{row[1]}"
+    file.each_with_index do |row, index|
+      gossips << "#{index+1}. #{row[0]} says #{row[1]}"
     end
     return gossips
   end
 
+  def self.delete(index_of_gossip_to_delete)
+    table = CSV.read("db/gossip.csv")
+    p table
+    table.delete_at(index_of_gossip_to_delete - 1)
+    p table
+
+    File.open("db/gossip.csv", 'w') do |f|
+      f.write(table.to_csv)
+    end
+  end
 end

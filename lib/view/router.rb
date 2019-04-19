@@ -48,7 +48,7 @@ class Router
         puts "-"*38
         PrintMe.new.message("You've choosen to to delete a gossip!", 5)
         puts ""
-        puts "suite pas encore ecrite"
+        @controler.delete
       when 4
         PrintMe.new.aired_message("Go get some inspiration ! Seeya soon !")
         exit

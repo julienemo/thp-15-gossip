@@ -22,8 +22,12 @@ class Controler
     gossips.each do |row|
       @view.show_gossip(row, 5)
     end
-
     puts ""
   end
 
+  def delete
+    params = @view.delete
+    Gossip.delete(params[:index_to_delete])
+    show_all
+  end
 end

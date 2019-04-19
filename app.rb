@@ -12,3 +12,5 @@ class App
 end
 
 App.new
+
+#p file = CSV.read("db/gossip.csv")

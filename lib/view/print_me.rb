@@ -3,7 +3,7 @@ Bundler.require
 
 class PrintMe
 
-  def aired_message(message,nb_space)
+  def self.aired_message(message,nb_space)
     puts "="*38
     puts ""
     print " "* nb_space
@@ -12,7 +12,7 @@ class PrintMe
     puts "="*38
   end
 
-  def get_question_answer(question,nb_space)
+  def self.get_question_answer(question,nb_space)
     print " "*nb_space
     puts "#{question}"
     print " "*nb_space
@@ -22,7 +22,7 @@ class PrintMe
     return ans
   end
 
-  def message(message,nb_space)
+  def self.message(message,nb_space)
     print " "*nb_space
     puts message
   end

@@ -32,6 +32,5 @@ class Gossip
     file = File.open("db/gossip.csv","w")
     content.each {|row| file.puts("#{row[0]},#{row[1]}")}
     file.close
-    puts
   end
 end

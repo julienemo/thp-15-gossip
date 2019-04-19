@@ -1,6 +1,7 @@
 require 'bundler'
 Bundler.require
 
+require_relative "view"
 require_relative "../app/gossip"
 require_relative "../app/controler"
 require_relative "print_me"
@@ -19,7 +20,13 @@ class Router
   private
 
   def welcome
-    puts "CECI EST LE FUTUR MESSAGE DE WELCOME"
+    puts '   ' + '-' * 33
+    puts '   |        Welcome to the         |'
+    puts '   |                               |'
+    puts '   |       Machine of Gossips      |'
+    puts '   |                               |'
+    puts '   |   powered by Julie the sage   |'
+    puts '   ' + '-' * 33
   end
 
   def action
@@ -31,7 +38,7 @@ class Router
         puts "-"*38
         PrintMe.new.message("You've choosen to create a gossip!", 5)
         puts ""
-        @controler.create
+        @controler.create_gossip
       when 2
         puts "-"*38
         PrintMe.new.message("You've choosen to see all the gossips!", 5)
@@ -52,6 +59,7 @@ class Router
   end
 
   def menu
+    puts ""
     PrintMe.new.message("Press <1> to create a gossip", 5)
     PrintMe.new.message("Press <2> to see all the gossips", 5)
     PrintMe.new.message("Press <3> to delete a gossip", 5)

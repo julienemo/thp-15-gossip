@@ -7,10 +7,9 @@ class Gossip
 
   attr_reader :author, :content, :gossip_list
 
-  def initialize
-    @content = PrintMe.new.get_question_answer("What did you heard from the street ??",5).downcase
-    @author = PrintMe.new.get_question_answer("And who do we say this is from ?",5).capitalize
-    PrintMe.new.aired_message("!!!#{@author} says #{@content}", 5)
+  def initialize(content, author)
+    @content = content
+    @author = author
   end
 
   def save

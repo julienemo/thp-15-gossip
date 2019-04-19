@@ -5,21 +5,23 @@ require_relative "gossip"
 require_relative "../view/view"
 
 class Controler
+  attr_reader :view
 
-  def create
-    gossip = Gossip.new
+  def initialize
+    @view = View.new
+  end
+
+  def create_gossip
+    params = @view.create_gossip
+    gossip = Gossip.new(params[:content], params[:author])
     gossip.save
   end
 
   def show_all
-    messages = []
     CSV.foreach("db/gossip.csv") do |row|
-      messages << "#{row[0]} says #{row[1]}"
+      @view.show_gossip(row[0], row[1])
     end
 
-    messages[1..-1].each_with_index do |mess,i|
-      PrintMe.new.message(mess, 5)
-    end
     puts ""
   end
 

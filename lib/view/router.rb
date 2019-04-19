@@ -50,7 +50,7 @@ class Router
         puts ""
         @controler.delete
       when 4
-        PrintMe.new.aired_message("Go get some inspiration ! Seeya soon !")
+        PrintMe.new.aired_message("Go get some inspiration ! Seeya soon !", 5)
         exit
       else
         puts "Come again? Didn't get that..."
@@ -63,5 +63,6 @@ class Router
     PrintMe.new.message("Press <1> to create a gossip", 5)
     PrintMe.new.message("Press <2> to see all the gossips", 5)
     PrintMe.new.message("Press <3> to delete a gossip", 5)
+    PrintMe.new.message("Press <4> to quit", 5)
   end
 end

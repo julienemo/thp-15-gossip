@@ -13,8 +13,7 @@ class View
     params =  { content: content_ans, author: author_ans }
   end
 
-  def show_gossip(author, content)
-    message = "#{author} says #{content}"
+  def show_gossip(message, nb_space)
     PrintMe.new.message(message,5)
   end
 end

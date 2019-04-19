@@ -18,8 +18,9 @@ class Controler
   end
 
   def show_all
-    CSV.foreach("db/gossip.csv") do |row|
-      @view.show_gossip(row[0], row[1])
+    gossips = Gossip.all
+    gossips.each do |row|
+      @view.show_gossip(row, 5)
     end
 
     puts ""

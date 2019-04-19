@@ -25,18 +25,12 @@ class Gossip
     puts "partie non ecrite"
   end
 
-  def self.show_all
-    @@gossip_list.each do |gossip|
-      puts "#{gossip.author}：#{gossip.content}."
+  def self.all
+    gossips = []
+    CSV.foreach("db/gossip.csv") do |row|
+      gossips << "#{row[0]} says #{row[1]}"
     end
-  end
-
-  def self.count
-    return @@gossip_list.length
+    return gossips
   end
 
 end
-
-# Gossip.new
-# Gossip.show_all
-# puts Gossip.count
